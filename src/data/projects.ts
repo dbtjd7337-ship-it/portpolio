@@ -77,19 +77,19 @@ export const projects: Project[] = [
     tags: ['Hard Surface', 'Mech', 'Plasticity', 'Blender', 'Rendering'],
     description:
       '시중에 출시된 MGSD 프리덤 건담 프라모델을 직접 참고해\nPlasticity로 모델링, Blender에서 텍스처링·렌더링·컴포지팅까지\n완성한 작업이다.\n\n실제 프라모델의 수치에 최대한 근접하게 모델링하고,\n프라모델이 실제로 움직일 수 있는 기믹 구조를 그대로\n3D 리그로 재현하는 것에 집중했다.\n\nBone Constraint를 적극 활용해 관절의 가동 범위와\n연동 구조를 프라모델과 동일하게 설계했으며,\n동시에 애니메이터가 직관적으로 다룰 수 있는\n리그 구조를 구축하는 데 공을 들였다.',
-    thumbnail: { src: '/images/projectA/freedom%20gundam/freedom%20gundam_main.mp4', type: 'video' },
+    thumbnail: { src: '/images/projectA/freedom-gundam/freedom-gundam_main.mp4', type: 'video' },
     media: [
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_1.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_2.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_3.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_4.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_5.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_6.jpg', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_7.jpg', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_8.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_9.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_10.png', type: 'image' },
-      { src: '/images/projectA/freedom%20gundam/freedom%20gundam_12.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_1.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_2.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_3.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_4.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_5.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_6.jpg', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_7.jpg', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_8.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_9.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_10.png', type: 'image' },
+      { src: '/images/projectA/freedom-gundam/freedom-gundam_12.png', type: 'image' },
     ],
     mediaLayout: [0, [1, 2], 3, 4, [5, 6], 7, 8, 9, 10],
   },
@@ -344,24 +344,24 @@ export const projects: Project[] = [
     tags: ['Environment', 'Scene', 'Retro', 'Blender', 'Substance Painter'],
     description:
       'SUPRA NFT 프로젝트의 로드맵 씬으로 기획된 3D 작업이다.\n새로운 NFT가 업데이트될 때마다 올리의 방 안에\n새로운 신발 상자가 등장하고, 일정 시간이 지나면\n해당 NFT가 공개되는 방식으로 로드맵이 진행될 예정이었다.\n\n17살 소년 올리의 방을 컨셉으로, 80~90년대의 감성을\n최대한 사실적으로 재현하는 것이 핵심이었다.\n그 시대에 유행했던 아이템과 소품들을 수없이 리서치하며\n씬 안에 하나하나 직접 모델링해 채워넣었다.\n외부 에셋에 의존하지 않고 대부분을 직접 제작했기에\n파일이 무거워지는 고충도 있었지만,\n원하는 것들을 온전히 담아낼 수 있었던 작업이다.\n\n스케이트보딩과 청춘의 감성을 3D 공간으로 옮긴,\n개인적으로도 특별히 기억에 남는 프로젝트다.',
-    thumbnail: { src: '/images/projectC/oille%20room/oille%20room_main.png', type: 'image' },
+    thumbnail: { src: '/images/projectC/oille-room/oille-room_main.png', type: 'image' },
     media: [
-      { src: '/images/projectC/oille%20room/oille%20room_1.png', type: 'image' },  // 0
-      { src: '/images/projectC/oille%20room/oille%20room_2.png', type: 'image' },  // 1
-      { src: '/images/projectC/oille%20room/oille%20room_3.png', type: 'image' },  // 2
-      { src: '/images/projectC/oille%20room/oille%20room_4.png', type: 'image' },  // 3
-      { src: '/images/projectC/oille%20room/asset_1.png', type: 'image' },         // 4
-      { src: '/images/projectC/oille%20room/asset_2.png', type: 'image' },         // 5
-      { src: '/images/projectC/oille%20room/asset_3.png', type: 'image' },         // 6
-      { src: '/images/projectC/oille%20room/asset_4.png', type: 'image' },         // 7
-      { src: '/images/projectC/oille%20room/asset_5.png', type: 'image' },         // 8
-      { src: '/images/projectC/oille%20room/asset_6.png', type: 'image' },         // 9
-      { src: '/images/projectC/oille%20room/asset_7.png', type: 'image' },         // 10
-      { src: '/images/projectC/oille%20room/asset_8.png', type: 'image' },         // 11
-      { src: '/images/projectC/oille%20room/asset_9.png', type: 'image' },         // 12
-      { src: '/images/projectC/oille%20room/asset_10.png', type: 'image' },        // 13
-      { src: '/images/projectC/oille%20room/asset_11.png', type: 'image' },        // 14
-      { src: '/images/projectC/oille%20room/asset_12.png', type: 'image' },        // 15
+      { src: '/images/projectC/oille-room/oille-room_1.png', type: 'image' },  // 0
+      { src: '/images/projectC/oille-room/oille-room_2.png', type: 'image' },  // 1
+      { src: '/images/projectC/oille-room/oille-room_3.png', type: 'image' },  // 2
+      { src: '/images/projectC/oille-room/oille-room_4.png', type: 'image' },  // 3
+      { src: '/images/projectC/oille-room/asset_1.png', type: 'image' },         // 4
+      { src: '/images/projectC/oille-room/asset_2.png', type: 'image' },         // 5
+      { src: '/images/projectC/oille-room/asset_3.png', type: 'image' },         // 6
+      { src: '/images/projectC/oille-room/asset_4.png', type: 'image' },         // 7
+      { src: '/images/projectC/oille-room/asset_5.png', type: 'image' },         // 8
+      { src: '/images/projectC/oille-room/asset_6.png', type: 'image' },         // 9
+      { src: '/images/projectC/oille-room/asset_7.png', type: 'image' },         // 10
+      { src: '/images/projectC/oille-room/asset_8.png', type: 'image' },         // 11
+      { src: '/images/projectC/oille-room/asset_9.png', type: 'image' },         // 12
+      { src: '/images/projectC/oille-room/asset_10.png', type: 'image' },        // 13
+      { src: '/images/projectC/oille-room/asset_11.png', type: 'image' },        // 14
+      { src: '/images/projectC/oille-room/asset_12.png', type: 'image' },        // 15
     ],
     mediaLayout: [
       [4, 5, 6],
@@ -374,7 +374,7 @@ export const projects: Project[] = [
       {
         url: 'https://www.behance.net/gallery/168093561/SUPRA-X-CYPHRLY',
         label: 'SUPRA X CYPHRLY',
-        thumbnail: '/images/projectC/oille%20room/oille%20room_thum.png',
+        thumbnail: '/images/projectC/oille-room/oille-room_thum.png',
       },
     ],
   },
