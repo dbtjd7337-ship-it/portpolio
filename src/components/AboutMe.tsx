@@ -12,8 +12,8 @@ export const AboutMe = () => {
         '캐릭터 디자인 및 제작',
         '리깅 및 애니메이팅',
         'VFX 및 지오메트리 노드 제작 및 에셋화',
-        '메테리얼 제작 및 에셋화'
-      ]
+        '메테리얼 제작 및 에셋화',
+      ],
     },
     {
       company: '주식회사 엘엘엔피',
@@ -21,146 +21,178 @@ export const AboutMe = () => {
       role: 'Devdesign Studio',
       achievements: [
         'Titan Contents 2gatur app UX/UI 총괄 / 매니징 / 라이브 / NFT 디자인 기획, 제작, 발행',
-        'Ridy 서비스 웹페이지 기획, 개발, 디자인, 운영, 마케팅'
-      ]
-    }
+        'Ridy 서비스 웹페이지 기획, 개발, 디자인, 운영, 마케팅',
+      ],
+    },
   ];
 
   const awards = [
     { year: '2020', title: 'IF concept design 제품디자인 부문 Winner (질병 예방 프로젝트)' },
     { year: '2023', title: 'IF design 브랜딩 외 3종 프로젝트 참여 Winner' },
-    { year: '2024', title: 'IF design 브랜딩 외 1종 프로젝트 참여 Winner' }
+    { year: '2024', title: 'IF design 브랜딩 외 1종 프로젝트 참여 Winner' },
   ];
 
   return (
-    <section className="w-full h-full flex flex-col justify-center px-12 md:px-24 bg-black overflow-y-auto" id="section-about">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+    <section
+      className="w-full h-full flex flex-col justify-start px-12 md:px-24 bg-black overflow-y-auto"
+      id="section-about"
+    >
+      <div className="max-w-6xl mx-auto w-full pt-16 pb-6 space-y-6">
 
-        {/* Left: Large Profile Image */}
+        {/* ─── 최상단 헤더 바 ─────────────────────────────────── */}
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
-           viewport={{ once: true }}
-           className="lg:col-span-4"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
+          className="flex items-start justify-between border-b border-[#222] pb-4"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
-          <div className="relative aspect-[3/4] overflow-hidden border border-[#222] group">
-            <img
-              src="/images/profile.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-            <div className="absolute bottom-6 left-6">
-              <div className="text-[#CCFF00] font-semibold text-lg tracking-widest uppercase">KIM YOU SEONG</div>
-              <div className="type-mono text-[#666666] mt-1">Visual Logic Architect</div>
-            </div>
+          {/* 좌측: 이름 */}
+          <div>
+            <p className="text-white uppercase font-semibold" style={{ fontSize: '0.75rem', letterSpacing: '0.15em' }}>
+              Kim You Seong
+            </p>
+            <p className="text-[#666]" style={{ fontSize: '0.7rem', letterSpacing: '0.1em' }}>
+              김유성
+            </p>
+          </div>
+
+          {/* 우측: 4열 정보 */}
+          <div className="grid grid-cols-4 gap-10 text-right">
+            {[
+              { label: 'Born',    value: '1996.02.24' },
+              { label: 'Degree',  value: 'Industrial Design' },
+              { label: 'Contact', value: '+82 10 8756 1458' },
+              { label: 'Email',   value: 'dbtjd7337@gmail.com' },
+            ].map(({ label, value }) => (
+              <div key={label}>
+                <p className="text-[#666] uppercase" style={{ fontSize: '0.65rem', letterSpacing: '0.15em' }}>{label}</p>
+                <p className="text-white font-semibold mt-0.5" style={{ fontSize: '0.72rem', letterSpacing: '0.04em' }}>{value}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Center/Right: Info & Details */}
-        <div className="lg:col-span-8 space-y-8">
+        {/* ─── 사진 + 자기소개 2단 ──────────────────────────────── */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
 
+          {/* 좌측: 인물 사진 */}
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.4, ease: [0.25, 0, 0, 1], delay: 0.1 }}
-             viewport={{ once: true }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.25, 0, 0, 1], delay: 0.1 }}
+            className="lg:col-span-4"
           >
-            <div className="flex gap-4 items-end mb-6">
-              <h2 className="type-section">ABOUT <span className="text-[#CCFF00]">ME</span></h2>
-              <div className="h-[1px] flex-grow bg-zinc-900 mb-2" />
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <div>
-                <div className="type-mono text-[#666666] mb-1">Born</div>
-                <div className="text-white text-sm font-semibold">1996.02.24</div>
-              </div>
-              <div>
-                <div className="type-mono text-[#666666] mb-1">Degree</div>
-                <div className="text-white text-sm font-semibold">Industrial Design</div>
-              </div>
-              <div>
-                <div className="type-mono text-[#666666] mb-1">Contact</div>
-                <div className="text-white text-sm font-semibold">+82 10 8756 1458</div>
-              </div>
-              <div>
-                <div className="type-mono text-[#666666] mb-1">Email</div>
-                <div className="text-white text-sm font-semibold">dbtjd7337@gmail.com</div>
+            <div className="relative overflow-hidden" style={{ height: '200px' }}>
+              <img
+                src="/images/profile.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover grayscale"
+                style={{
+                  transform: 'scale(1.3)',
+                  transformOrigin: '60% 22%',
+                  objectPosition: '60% 22%',
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-white font-semibold uppercase" style={{ fontSize: '0.7rem', letterSpacing: '0.18em' }}>
+                  Kim You Seong
+                </p>
+                <p className="text-[#666]" style={{ fontSize: '0.65rem', letterSpacing: '0.1em' }}>
+                  Visual Logic Architect
+                </p>
               </div>
             </div>
-
-            <p className="type-body max-w-3xl border-l-2 border-[#CCFF00] pl-6 py-2">
-              대학 시절 전공한 <span className="text-white font-bold underline decoration-cyan-500/50">제품 디자인(NURBS)</span>의 정교한 설계 감각을 익혔고, 이를 <span className="text-white font-bold underline decoration-cyan-500/50">3D 시각화(Polygon)</span>와 결합해 밀도 높은 결과물을 만들어냅니다. 단순히 심미적인 디자인을 넘어 프로젝트의 정책과 로직을 직접 설계하며 AI와 코드를 활용해 실제 작동하는 시스템까지 구현하는 '문제 해결형 디자이너'입니다.
-            </p>
           </motion.div>
 
-          {/* Education */}
+          {/* 우측: 자기소개 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.25, 0, 0, 1], delay: 0.15 }}
+            className="lg:col-span-8 flex items-start"
+          >
+            <div className="border-l border-white pl-6 py-1">
+              <p className="type-body leading-loose">
+                대학 시절 전공한 <span className="text-white font-bold">제품 디자인(NURBS)</span>의 정교한 설계 감각을 익혔고,
+                이를 <span className="text-white font-bold">3D 시각화(Polygon)</span>와 결합해 밀도 높은 결과물을 만들어냅니다.
+                단순히 심미적인 디자인을 넘어 프로젝트의 정책과 로직을 직접 설계하며
+                AI와 코드를 활용해 실제 작동하는 시스템까지 구현하는
+                <span className="text-white font-bold"> '문제 해결형 디자이너'</span>입니다.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ─── Education ────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
+        >
+          <p className="uppercase text-[#666] mb-3" style={{ fontSize: '0.65rem', letterSpacing: '0.25em', fontFamily: "'DM Sans', sans-serif" }}>
+            Education
+          </p>
+          <div className="flex justify-between items-baseline py-3 border-b border-[#222]">
+            <div>
+              <span className="text-white font-bold text-sm">상명대학교</span>
+              <span className="text-[#888] text-xs ml-3">산업디자인학과</span>
+            </div>
+            <span className="text-[#666] text-xs text-right" style={{ fontFamily: "'DM Sans', sans-serif" }}>2014.03 ~ 2022.02</span>
+          </div>
+        </motion.div>
+
+        {/* ─── Experience & Awards ──────────────────────────────── */}
+        <div className="grid md:grid-cols-2 gap-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
           >
-            <h3 className="type-category mb-3">Education</h3>
-            <div className="p-4 border border-[#222] flex justify-between items-center">
-              <div>
-                <div className="text-base font-bold text-white">상명대학교</div>
-                <div className="text-xs text-[#CCFF00] font-bold mt-1">산업디자인학과</div>
+            <p className="uppercase text-[#666] mb-3" style={{ fontSize: '0.65rem', letterSpacing: '0.25em', fontFamily: "'DM Sans', sans-serif" }}>
+              Experience
+            </p>
+            {experiences.map((exp, i) => (
+              <div key={i} className="border-b border-[#222] py-4">
+                <div className="flex justify-between items-baseline gap-4 mb-1">
+                  <span className="text-white font-bold text-sm">{exp.company}</span>
+                  <span className="text-[#666] text-xs shrink-0" style={{ fontFamily: "'DM Sans', sans-serif" }}>{exp.period}</span>
+                </div>
+                <p className="text-[#888] mb-3" style={{ fontSize: '0.72rem' }}>{exp.role}</p>
+                <div className="space-y-1.5">
+                  {exp.achievements.map((item, j) => (
+                    <p key={j} className="text-[#888] border-b border-[#222] pb-1.5" style={{ fontSize: '0.72rem', lineHeight: 1.5 }}>
+                      {item}
+                    </p>
+                  ))}
+                </div>
               </div>
-              <span className="type-mono text-[#666666]">2014.03 ~ 2022.02</span>
-            </div>
+            ))}
           </motion.div>
 
-          {/* Experience & Awards Row */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              <h3 className="type-category">Experience</h3>
-              <div className="space-y-3">
-                {experiences.map((exp, i) => (
-                  <div key={i} className="p-4 border border-[#222]">
-                    <div className="flex justify-between items-start mb-1.5 gap-2">
-                      <h4 className="font-bold text-base text-white leading-tight hover:text-[#CCFF00] cursor-default">{exp.company}</h4>
-                      <span className="text-xs font-mono text-[#666666] shrink-0">{exp.period}</span>
-                    </div>
-                    <div className="text-xs text-[#CCFF00] font-bold mb-2.5">{exp.role}</div>
-                    <ul className="space-y-1">
-                      {exp.achievements.map((item, j) => (
-                        <li key={j} className="text-xs text-[#666666] flex items-start gap-2">
-                          <span className="text-[#CCFF00] mt-0.5 shrink-0">·</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
+          >
+            <p className="uppercase text-[#666] mb-3" style={{ fontSize: '0.65rem', letterSpacing: '0.25em', fontFamily: "'DM Sans', sans-serif" }}>
+              Awards
+            </p>
+            {awards.map((award, i) => (
+              <div key={i} className="flex justify-between items-baseline gap-6 py-3 border-b border-[#222]">
+                <span className="text-white font-bold text-sm shrink-0">{award.year}</span>
+                <span className="text-[#888] text-right" style={{ fontSize: '0.72rem', lineHeight: 1.5 }}>{award.title}</span>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              <h3 className="type-category">Awards</h3>
-              <div className="space-y-2.5">
-                {awards.map((award, i) => (
-                  <div key={i} className="flex gap-4 items-start p-4 border border-[#222]">
-                    <span className="font-semibold text-[#CCFF00] text-base leading-tight shrink-0">{award.year}</span>
-                    <span className="text-white text-sm leading-snug">{award.title}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
 
         </div>
+
       </div>
     </section>
   );

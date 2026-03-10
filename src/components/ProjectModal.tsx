@@ -68,13 +68,14 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <div className="px-8 pt-8 pb-12">
               {/* 프로젝트 헤더 */}
               <div className="mb-8">
-                <div className="type-category mb-2 text-[#CCFF00]">{project.categoryLabel}</div>
+                <div className="type-category mb-2 text-[#ffffff]">{project.categoryLabel}</div>
                 <h2 className="type-section mb-5">{project.name}</h2>
                 <div className="flex gap-2 flex-wrap">
                   {project.tags.map(tag => (
                     <span
                       key={tag}
-                      className="text-[11px] px-2 py-0.5 border border-[#222] text-white uppercase" style={{ letterSpacing: '0.1em' }}
+                      className="text-[11px] px-2 py-0.5 text-white uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                      style={{ letterSpacing: '0.1em', border: '1px solid #555' }}
                     >
                       {tag}
                     </span>
@@ -89,7 +90,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
               {/* 설명 */}
               {project.description && (
-                <p className="type-body border-l-2 border-[#CCFF00] pl-6 py-2 my-8 whitespace-pre-line">
+                <p className="type-body border-l border-white pl-6 py-2 my-8 whitespace-pre-line">
                   {project.description}
                 </p>
               )}
@@ -126,9 +127,9 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/70 transition-colors duration-300" />
                       <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M3 17L17 3M17 3H7M17 3V13" stroke="#CCFF00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M3 17L17 3M17 3H7M17 3V13" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-[#CCFF00] text-xs uppercase tracking-[0.2em]">{link.hoverLabel ?? 'View on Behance'}</span>
+                        <span className="text-[#ffffff] text-xs uppercase tracking-[0.2em]">{link.hoverLabel ?? 'View on Behance'}</span>
                       </div>
                       <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
                         <span className="text-white text-xs">{link.label}</span>
@@ -149,8 +150,8 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                         <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className={`overflow-hidden bg-black border border-[#222] block group relative ${extraClass}`}>
                           {inner}
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#CCFF00] text-xs uppercase tracking-[0.2em] flex items-center gap-2">
-                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="#CCFF00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#ffffff] text-xs uppercase tracking-[0.2em] flex items-center gap-2">
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                               View NFT
                             </span>
                           </div>
@@ -162,40 +163,70 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                       );
                     };
 
-                    return typeof slot === 'object' && !Array.isArray(slot) ? (
-                      <div key={rowIdx} className="grid gap-3" style={{ gridTemplateColumns: slot.cols }}>
-                        {slot.indices.map(idx => renderItem(idx))}
-                      </div>
-                    ) : Array.isArray(slot) ? (
-                      <div key={rowIdx} className="flex gap-3">
-                        {slot.map(idx => renderItem(idx, 'flex-1 min-w-0'))}
-                      </div>
-                    ) : (() => {
-                      const idx = slot as number;
-                      const url = project.mediaLinks?.[idx];
-                      const mediaItem = project.media[idx];
-                      const inner = <MediaRenderer item={mediaItem} className="w-full object-cover" />;
-                      const caption = mediaItem.caption;
-                      const media = url ? (
-                        <a key={rowIdx} href={url} target="_blank" rel="noopener noreferrer" className="w-full overflow-hidden bg-black border border-[#222] block group relative">
-                          {inner}
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#CCFF00] text-xs uppercase tracking-[0.2em] flex items-center gap-2">
-                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="#CCFF00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                              View NFT
-                            </span>
+                    const renderRow = (innerSlot: number | number[] | { indices: number[]; cols: string }, innerIdx: number) => {
+                      if (typeof innerSlot === 'object' && !Array.isArray(innerSlot)) {
+                        return (
+                          <div key={innerIdx} className="grid gap-3" style={{ gridTemplateColumns: innerSlot.cols }}>
+                            {innerSlot.indices.map(idx => renderItem(idx))}
                           </div>
-                        </a>
-                      ) : (
-                        <div key={rowIdx} className="w-full overflow-hidden bg-black border border-[#222]">{inner}</div>
-                      );
-                      return caption ? (
-                        <div key={rowIdx}>
-                          {media}
-                          <p className="type-body text-zinc-400 mt-2 whitespace-pre-line">{caption}</p>
+                        );
+                      } else if (Array.isArray(innerSlot)) {
+                        return (
+                          <div key={innerIdx} className="flex gap-3">
+                            {innerSlot.map(idx => renderItem(idx, 'flex-1 min-w-0'))}
+                          </div>
+                        );
+                      } else {
+                        const idx = innerSlot as number;
+                        const url = project.mediaLinks?.[idx];
+                        const mediaItem = project.media[idx];
+                        const inner = <MediaRenderer item={mediaItem} className="w-full object-cover" />;
+                        const caption = mediaItem.caption;
+                        const media = url ? (
+                          <a key={innerIdx} href={url} target="_blank" rel="noopener noreferrer" className="w-full overflow-hidden bg-black border border-[#222] block group relative">
+                            {inner}
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#ffffff] text-xs uppercase tracking-[0.2em] flex items-center gap-2">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                View NFT
+                              </span>
+                            </div>
+                          </a>
+                        ) : (
+                          <div key={innerIdx} className="w-full overflow-hidden bg-black border border-[#222]">{inner}</div>
+                        );
+                        return caption ? (
+                          <div key={innerIdx}>
+                            {media}
+                            <p className="type-body text-zinc-400 mt-2 whitespace-pre-line">{caption}</p>
+                          </div>
+                        ) : media;
+                      }
+                    };
+
+                    if (typeof slot === 'object' && !Array.isArray(slot) && 'group' in slot) {
+                      return (
+                        <div key={rowIdx} className="pt-8">
+                          {(slot.label || slot.description) && (
+                            <div className="mb-3">
+                              {slot.label && (
+                                <h4 className="text-white text-sm font-semibold uppercase tracking-[0.12em] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                                  {slot.label}
+                                </h4>
+                              )}
+                              {slot.description && (
+                                <p className="type-body">{slot.description}</p>
+                              )}
+                            </div>
+                          )}
+                          <div className="border border-[#333] p-3 space-y-3 mt-3">
+                            {slot.group.map((innerSlot, innerIdx) => renderRow(innerSlot, innerIdx))}
+                          </div>
                         </div>
-                      ) : media;
-                    })();
+                      );
+                    }
+
+                    return renderRow(slot as number | number[] | { indices: number[]; cols: string }, rowIdx);
                   })}
                 </div>
               )}

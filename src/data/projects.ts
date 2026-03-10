@@ -22,8 +22,8 @@ export interface Project {
   description: string;
   thumbnail: ProjectMedia;
   media: ProjectMedia[];
-  /** 갤러리 레이아웃: 숫자 = full-width, 숫자 배열 = 균등 분할, 객체 = 비율 지정 */
-  mediaLayout?: (number | number[] | { indices: number[]; cols: string })[];
+  /** 갤러리 레이아웃: 숫자 = full-width, 숫자 배열 = 균등 분할, 객체 = 비율 지정, group = 컨테이너로 묶기 */
+  mediaLayout?: (number | number[] | { indices: number[]; cols: string } | { group: (number | number[] | { indices: number[]; cols: string })[]; label?: string; description?: string })[];
   behanceLinks?: BehanceLink[];
   /** 특정 미디어 아이템에 연결할 링크: { 인덱스: url } */
   mediaLinks?: Record<number, string>;
@@ -292,29 +292,53 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: '2gatur',
-    name: '2gatur',
+    id: '2gathr',
+    name: '2gathr',
     category: 'projectB',
     categoryLabel: 'Web & Service',
     tags: ['UI/UX', 'Platform', 'Service Design', 'Planning', 'Managing'],
     description:
-      '타이탄 콘텐츠(엔터테인먼트)의 소속 아티스트를 위한\n자체 팬덤 플랫폼 \'2gatur\'의 UX/UI 디자인을 총괄하고 있는 프로젝트다.\n현재 타이탄 소속 그룹 앳하트(At Heart)가 서비스 중이며,\n지속적인 업데이트 디자인을 지원하고 있다.\n\nFigma를 활용해 앱 내 컴포넌트 시스템을 직접 구축했으며,\n재사용 가능한 프로시저럴 구조로 설계해\n유지보수와 확장에 용이한 디자인 환경을 만들었다.\n\n기획과 개발 사이에서 매니징을 겸하며\n디자인이 실제 서비스로 구현되는 전 과정을 주도하고 있다.\n플랫폼 내 Piece NFT의 제작·발행·관리 또한 담당하고 있다.',
+      '타이탄 콘텐츠(엔터테인먼트)의 소속 아티스트를 위한\n자체 팬덤 플랫폼 \'2gathr\'의 UX/UI 디자인을 총괄하고 있는 프로젝트다.\n현재 타이탄 소속 그룹 앳하트(At Heart)가 서비스 중이며,\n지속적인 업데이트 디자인을 지원하고 있다.\n\nFigma를 활용해 앱 내 컴포넌트 시스템을 직접 구축했으며,\n재사용 가능한 프로시저럴 구조로 설계해\n유지보수와 확장에 용이한 디자인 환경을 만들었다.\n\n기획과 개발 사이에서 매니징을 겸하며\n디자인이 실제 서비스로 구현되는 전 과정을 주도하고 있다.\n플랫폼 내 Piece NFT의 제작·발행·관리 또한 담당하고 있다.',
     links: [
       { label: 'App Store ↗', url: 'https://apps.apple.com/kr/app/2gathr-%ED%88%AC%EA%B2%8C%EB%8D%94/id6752650933' },
       { label: 'Google Play ↗', url: 'https://play.google.com/store/apps/details?id=com.titan.gathr&hl=ko' },
-      { label: '2gatur ↗', url: 'https://apps.apple.com/kr/app/2gathr-%ED%88%AC%EA%B2%8C%EB%8D%94/id6752650933' },
+      { label: '2gathr ↗', url: 'https://apps.apple.com/kr/app/2gathr-%ED%88%AC%EA%B2%8C%EB%8D%94/id6752650933' },
     ],
-    thumbnail: { src: '/images/projectB/2gatur/2gatur_main.png', type: 'image' },
-    mediaLayout: [[0, 1], [2, 3], [4, 5], [6, 7]],
+    thumbnail: { src: '/images/projectB/2gathr/2gatur_main.png', type: 'image' },
+    mediaLayout: [
+      [0, 1], [2, 3], [4, 5], [6, 7],
+      {
+        group: [[8, 10, 11, 14], [9, 12, 13, 17]],
+        label: 'AtHeart × 2Gathr Character Piece',
+        description: 'AtHeart 멤버 7인과 1:1 매칭된 강아지 캐릭터 — Michi(mimi) · Arin(arong) · Katelyn(keke) · Bome(chuni) · Seohyeun(mooni) · Nahyun(namong) · Aurora(tomo). 원화를 기반으로 카툰 렌더링 방식으로 모델링하고, 애니메이팅에 최적화된 리깅으로 완성한 Piece다. 2Gathr 런칭 오프닝 이벤트 시 welcome piece와 함께 팬들에게 제공되었으며, 굿즈·NFC 등 다양한 사업 확장에 활용될 수 있도록 전 7종을 세팅해 두었다.',
+      },
+      {
+        group: [[15, 16]],
+        label: 'Opening Animation',
+        description: '2Gathr 최초 런칭 당시 팬 오프닝 이벤트로 제공된 Piece 오픈 애니메이션.',
+      },
+    ],
     media: [
-      { src: '/images/projectB/2gatur/2gatur_1.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_2.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_3.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_4.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_5.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_6.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_7.png', type: 'image' },
-      { src: '/images/projectB/2gatur/2gatur_8.png', type: 'image' },
+      { src: '/images/projectB/2gathr/2gatur_1.png', type: 'image' },         // 0
+      { src: '/images/projectB/2gathr/2gatur_2.png', type: 'image' },         // 1
+      { src: '/images/projectB/2gathr/2gatur_3.png', type: 'image' },         // 2
+      { src: '/images/projectB/2gathr/2gatur_4.png', type: 'image' },         // 3
+      { src: '/images/projectB/2gathr/2gatur_5.png', type: 'image' },         // 4
+      { src: '/images/projectB/2gathr/2gatur_6.png', type: 'image' },         // 5
+      { src: '/images/projectB/2gathr/2gatur_7.png', type: 'image' },         // 6
+      { src: '/images/projectB/2gathr/2gatur_8.png', type: 'image' },         // 7
+      // Piece characters: mimi, arong, keke, chuni, tomo, mooni, namong
+      { src: '/images/projectB/2gathr/mimi_piece.mp4', type: 'video' },       // 8
+      { src: '/images/projectB/2gathr/arong_piece.mp4', type: 'video' },      // 9
+      { src: '/images/projectB/2gathr/keke_piece.mp4', type: 'video' },       // 10
+      { src: '/images/projectB/2gathr/chuni_piece.mp4', type: 'video' },      // 11
+      { src: '/images/projectB/2gathr/tomo_piece.mp4', type: 'video' },       // 12
+      { src: '/images/projectB/2gathr/mooni_piece.mp4', type: 'video' },      // 13
+      { src: '/images/projectB/2gathr/namong_piece.mp4', type: 'video' },     // 14
+      // Opening animations
+      { src: '/images/projectB/2gathr/i&_piece open animation2.mp4', type: 'video' },  // 15
+      { src: '/images/projectB/2gathr/open animation.mp4', type: 'video' },            // 16
+      { src: '/images/projectB/2gathr/welcome_piece.mp4', type: 'video' },             // 17
     ],
   },
   // ─── Project C : Visual ───────────────────────────────────────────────────

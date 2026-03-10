@@ -33,81 +33,87 @@ const SECTIONS = [
 const TOTAL = String(SECTIONS.length).padStart(2, '0');
 
 // ─── 인트로 전용 데이터 ──────────────────────────────────────
-const ROLES = ['FULL-STACK CREATOR', '3D ARTIST', 'AI STRATEGIST'];
-const BANNER_IMAGES = [
-  '/images/projectA/dog/dog_main.png',
-  '/images/projectC/hideout/hideout_main.png',
-  '/images/projectB/ridy/ridy_main.png',
-  '/images/projectA/mobi/mobi_main.png',
-  '/images/projectC/oille-room/oille-room_main.png',
-  '/images/projectB/2gatur/2gatur_main.png',
-  '/images/projectA/freedom-gundam/freedom-gundam_1.jpg',
-  '/images/projectA/rolex/rolex_1.png',
-  '/images/projectA/rx78/rx78_1.png',
-  '/images/projectA/tiger/tiger_2.png',
+const CATEGORIES = [
+  '3D CREATION',
+  'ANIMATION',
+  'UX/UI DESIGN',
+  'WEB & SYSTEM',
+  'NFT & DIGITAL ASSET',
 ];
+
+const introStagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+};
+const introFadeUp: Variants = {
+  hidden:   { opacity: 0, y: 15 },
+  visible:  { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0, 0, 1] } },
+};
 
 // ─── 인트로 섹션 ─────────────────────────────────────────────
 function IntroSection() {
   return (
-    <section className="w-full h-full flex flex-col overflow-hidden" id="section-intro">
-      <div className="flex-1 flex flex-col justify-center px-12 md:px-24">
-        <motion.div variants={stagger} initial="hidden" animate="visible" className="flex flex-col">
+    <section className="w-full h-full relative" id="section-intro">
 
-          {/* 이름 + 태그라인 */}
-          <motion.div variants={fadeUp} className="flex items-baseline justify-between mb-10">
-            <p className="text-[#666666] uppercase font-bold"
-               style={{ fontSize: '0.75rem', letterSpacing: '0.3em', fontFamily: "'DM Sans', sans-serif" }}>
-              KIM YOU SEONG
-            </p>
-            <p className="text-[#444444]"
-               style={{ fontSize: '0.7rem', letterSpacing: '0.15em', fontFamily: "'DM Sans', sans-serif" }}>
-              Where 3D craft meets AI strategy.
-            </p>
-          </motion.div>
+      {/* 좌측 상단 */}
+      <p
+        className="absolute top-10 left-12 md:left-24 text-white uppercase"
+        style={{ fontSize: '0.75rem', letterSpacing: '0.1em', fontFamily: "'DM Sans', sans-serif" }}
+      >
+        Portfolio
+      </p>
 
-          {/* 역할 3줄 */}
-          {ROLES.map((role, i) => (
-            <motion.div key={role} variants={fadeUp} className="border-t border-[#222] py-5">
-              {i === 0 ? (
-                <span className="inline-block font-bold uppercase leading-none px-4 py-1"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif",
-                               fontSize: 'clamp(2rem, 5.5vw, 6vw)',
-                               letterSpacing: '-0.01em',
-                               color: '#CCFF00',
-                               border: '2px solid #CCFF00' }}>
-                  {role}
-                </span>
-              ) : (
-                <span className="text-white font-bold uppercase leading-none block hover:text-[#CCFF00] transition-colors duration-200"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif",
-                               fontSize: 'clamp(2rem, 5.5vw, 6vw)',
-                               letterSpacing: '-0.01em' }}>
-                  {role}
-                </span>
-              )}
-            </motion.div>
+      {/* 우측 상단 */}
+      <p
+        className="absolute top-10 right-12 md:right-24 text-white uppercase"
+        style={{ fontSize: '0.75rem', letterSpacing: '0.1em', fontFamily: "'DM Sans', sans-serif" }}
+      >
+        2022–2026
+      </p>
+
+      {/* 중앙: 카테고리 목록 */}
+      <div className="absolute inset-0 flex items-center px-12 md:px-24">
+        <motion.div
+          variants={introStagger}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col"
+        >
+          {CATEGORIES.map((label) => (
+            <motion.p
+              key={label}
+              variants={introFadeUp}
+              className="uppercase transition-colors duration-200"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: 'clamp(2.5rem, 3.5vw, 3.5rem)',
+                fontWeight: 700,
+                lineHeight: 1.3,
+                letterSpacing: '-0.01em',
+                color: '#ffffff',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#555555'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#ffffff'; }}
+            >
+              {label}
+            </motion.p>
           ))}
-          <div className="border-t border-[#222]" />
         </motion.div>
       </div>
 
-      {/* 롤링 배너 */}
-      <div className="border-t border-[#222] overflow-hidden shrink-0" style={{ height: '200px' }}>
-        <div className="marquee-track flex h-full" style={{ width: 'max-content' }}>
-          {[...BANNER_IMAGES, ...BANNER_IMAGES].map((src, i) => (
-            <div key={i}
-                 className="h-full shrink-0 border-r border-[#222]"
-                 style={{ width: '300px' }}>
-              <img
-                src={src}
-                alt=""
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
-          ))}
-        </div>
+      {/* 좌측 하단 */}
+      <div
+        className="absolute bottom-10 left-12 md:left-24"
+        style={{ fontFamily: "'DM Sans', sans-serif" }}
+      >
+        <p className="uppercase" style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#555555' }}>
+          Kim You Seong
+        </p>
+        <p className="uppercase" style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#555555' }}>
+          © 2026
+        </p>
       </div>
+
     </section>
   );
 }
@@ -153,6 +159,8 @@ function App() {
   // wheel 이벤트 — 내부 overflow 스크롤 통과
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
+      // 모달이 열려 있으면 섹션 이동 차단
+      if (document.body.style.overflow === 'hidden') return;
       let el: Element | null = e.target as Element;
       while (el && el !== document.documentElement) {
         const { overflowY } = getComputedStyle(el);
@@ -176,6 +184,7 @@ function App() {
   // 키보드 지원
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (document.body.style.overflow === 'hidden') return;
       if (['ArrowDown', 'PageDown'].includes(e.key)) goTo(currentRef.current + 1);
       if (['ArrowUp',   'PageUp'  ].includes(e.key)) goTo(currentRef.current - 1);
     };
@@ -227,7 +236,7 @@ function App() {
               <div key={i}
                    className="h-[1px] transition-all duration-400"
                    style={{ width: i === current ? '20px' : '6px',
-                            background: i === current ? '#CCFF00' : '#333' }} />
+                            background: i === current ? '#ffffff' : '#333' }} />
             ))}
           </div>
         </div>
