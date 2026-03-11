@@ -1,18 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import type { Project, ProjectMedia } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 const ThumbnailMedia = ({ item, className }: { item: ProjectMedia; className?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (item.type !== 'video') return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [item.type]);
+
   if (item.type === 'video') {
     return (
-      <video autoPlay muted loop playsInline className={className}>
+      <video ref={videoRef} muted loop playsInline preload="none" className={className}>
         <source src={item.src} type="video/mp4" />
       </video>
     );
   }
-  return <img src={item.src} alt="" className={className} />;
+  return <img src={item.src} alt="" loading="lazy" className={className} />;
 };
 
 const ProjectCard = ({ project, delay, onClick }: { project: Project; delay: number; onClick: () => void }) => (
@@ -90,7 +111,7 @@ export const ProjectsSection = () => {
 
   return (
     <section
-      className="w-full h-full overflow-y-auto flex flex-col justify-start py-20 px-12 md:px-24 bg-black works-scroll"
+      className="w-full h-full overflow-y-auto flex flex-col justify-start py-16 px-12 md:px-24 bg-black works-scroll"
       id="section-works"
     >
       <div className="max-w-6xl mx-auto w-full">

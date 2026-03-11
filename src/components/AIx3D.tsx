@@ -44,10 +44,10 @@ const phases = [
 export const AIx3D = () => {
   return (
     <section
-      className="w-full h-full flex flex-col justify-center px-12 md:px-24 overflow-y-auto"
+      className="w-full h-full flex flex-col justify-start md:justify-center py-16 px-12 md:px-24 overflow-y-auto"
       id="section-aix3d"
     >
-      <div className="max-w-6xl mx-auto w-full py-16">
+      <div className="max-w-6xl mx-auto w-full">
 
         {/* ─── 상단: 섹션 레이블 + 헤드라인 ──────────────────────── */}
         <motion.div

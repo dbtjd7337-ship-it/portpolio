@@ -6,12 +6,12 @@ import type { Project, ProjectMedia } from '../data/projects';
 const MediaRenderer = ({ item, className }: { item: ProjectMedia; className?: string }) => {
   if (item.type === 'video') {
     return (
-      <video autoPlay muted loop playsInline className={className}>
+      <video autoPlay muted loop playsInline preload="metadata" className={className}>
         <source src={item.src} type="video/mp4" />
       </video>
     );
   }
-  return <img src={item.src} alt="" className={className} />;
+  return <img src={item.src} alt="" loading="lazy" className={className} />;
 };
 
 

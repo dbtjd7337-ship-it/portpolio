@@ -34,17 +34,17 @@ export const AboutMe = () => {
 
   return (
     <section
-      className="w-full h-full flex flex-col justify-start px-12 md:px-24 bg-black overflow-y-auto"
+      className="w-full h-full flex flex-col justify-start py-16 px-12 md:px-24 bg-black overflow-y-auto"
       id="section-about"
     >
-      <div className="max-w-6xl mx-auto w-full pt-16 pb-6 space-y-6">
+      <div className="max-w-6xl mx-auto w-full space-y-6">
 
         {/* ─── 최상단 헤더 바 ─────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
-          className="flex items-start justify-between border-b border-[#222] pb-4"
+          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-[#222] pb-4"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {/* 좌측: 이름 */}
@@ -58,7 +58,7 @@ export const AboutMe = () => {
           </div>
 
           {/* 우측: 4열 정보 */}
-          <div className="grid grid-cols-4 gap-10 text-right">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-4 md:text-right">
             {[
               { label: 'Born',    value: '1996.02.24' },
               { label: 'Degree',  value: 'Industrial Design' },
@@ -85,7 +85,7 @@ export const AboutMe = () => {
           >
             <div className="relative overflow-hidden" style={{ height: '200px' }}>
               <img
-                src="/images/profile.jpg"
+                src="/images/profile.webp"
                 alt="Profile"
                 className="w-full h-full object-cover grayscale"
                 style={{

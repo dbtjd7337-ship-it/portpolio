@@ -32,7 +32,7 @@ const tagStyle: React.CSSProperties = {
 
 export const SkillStack = () => {
   return (
-    <section className="w-full h-full flex flex-col justify-center px-12 md:px-24 overflow-y-auto bg-black" id="section-toolbox">
+    <section className="w-full h-full flex flex-col justify-start md:justify-center py-16 px-12 md:px-24 overflow-y-auto bg-black" id="section-toolbox">
       <div className="max-w-6xl mx-auto w-full">
 
         {/* 헤더 */}
@@ -40,17 +40,16 @@ export const SkillStack = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0, 0, 1] }}
-          className="flex items-end justify-between mb-10"
+          className="flex flex-col mb-10"
         >
           <h2
-            className="text-white font-bold uppercase leading-none"
+            className="text-white font-bold uppercase leading-none mb-4"
             style={{ fontSize: '2.5rem', fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.01em' }}
           >
             The Toolbox
           </h2>
           <p
-            className="text-right max-w-xs"
-            style={{ fontSize: '0.72rem', color: '#666', fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}
+            style={{ fontSize: '0.75rem', color: '#666', fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}
           >
             도구의 경계가 무너지는 지점에서 새로운 가치를 창출합니다.<br />
             3D 설계부터 프론트엔드 시스템까지의 통합 숙련도입니다.

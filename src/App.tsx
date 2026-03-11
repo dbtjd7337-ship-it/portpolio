@@ -57,7 +57,7 @@ function IntroSection() {
 
       {/* 좌측 상단 */}
       <p
-        className="absolute top-10 left-12 md:left-24 text-white uppercase"
+        className="absolute top-16 left-12 md:left-24 text-white uppercase"
         style={{ fontSize: '0.75rem', letterSpacing: '0.1em', fontFamily: "'DM Sans', sans-serif" }}
       >
         Portfolio
@@ -65,7 +65,7 @@ function IntroSection() {
 
       {/* 우측 상단 */}
       <p
-        className="absolute top-10 right-12 md:right-24 text-white uppercase"
+        className="absolute top-16 right-12 md:right-24 text-white uppercase"
         style={{ fontSize: '0.75rem', letterSpacing: '0.1em', fontFamily: "'DM Sans', sans-serif" }}
       >
         2022–2026
@@ -103,7 +103,7 @@ function IntroSection() {
 
       {/* 좌측 하단 */}
       <div
-        className="absolute bottom-10 left-12 md:left-24"
+        className="absolute bottom-16 left-12 md:left-24"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         <p className="uppercase" style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#555555' }}>
@@ -211,7 +211,7 @@ function App() {
           initial="enter"
           animate="visible"
           exit="exit"
-          className="fixed inset-0"
+          className="fixed inset-0 section-safe"
           data-index={current}
         >
           {sectionComponents[current]}
@@ -219,7 +219,7 @@ function App() {
       </AnimatePresence>
 
       {/* 하단 중앙 — 섹션 레이블 + 진행 바 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+      <div className="fixed left-1/2 -translate-x-1/2 z-50 pointer-events-none" style={{ bottom: 'calc(var(--safe-bottom) + 2rem)' }}>
         <div className="flex items-center gap-4 px-5 py-2 bg-black border border-[#222]">
           <motion.span
             key={current}
@@ -243,7 +243,7 @@ function App() {
       </div>
 
       {/* 우측 하단 — 섹션 번호 01 / 05 */}
-      <div className="fixed bottom-8 right-12 z-50 pointer-events-none">
+      <div className="fixed right-12 z-50 pointer-events-none" style={{ bottom: 'calc(var(--safe-bottom) + 2rem)' }}>
         <motion.p
           key={current}
           initial={{ opacity: 0, y: 4 }}
