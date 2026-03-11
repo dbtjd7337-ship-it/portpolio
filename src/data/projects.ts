@@ -104,6 +104,7 @@ export const projects: Project[] = [
     thumbnail: { src: '/images/projectA/mobi/mobi_main.webp', type: 'image' },
     media: [
       { src: '/images/projectA/mobi/mobi_1.mp4', type: 'video' },
+      { src: '/images/projectA/mobi/mobi_4.webp', type: 'image' },
       { src: '/images/projectA/mobi/mobi_2.webp', type: 'image' },
       { src: '/images/projectA/mobi/mobi_3.webp', type: 'image' },
     ],

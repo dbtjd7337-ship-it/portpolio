@@ -115,11 +115,12 @@ export const AboutMe = () => {
           >
             <div className="border-l border-white pl-6 py-1">
               <p className="type-body leading-loose">
-                대학 시절 전공한 <span className="text-white font-bold">제품 디자인(NURBS)</span>의 정교한 설계 감각을 익혔고,
-                이를 <span className="text-white font-bold">3D 시각화(Polygon)</span>와 결합해 밀도 높은 결과물을 만들어냅니다.
-                단순히 심미적인 디자인을 넘어 프로젝트의 정책과 로직을 직접 설계하며
-                AI와 코드를 활용해 실제 작동하는 시스템까지 구현하는
-                <span className="text-white font-bold"> '문제 해결형 디자이너'</span>입니다.
+                <span className="text-white font-bold">NURBS 기반 제품 설계</span>와 <span className="text-white font-bold">블렌더 3D 시각화</span>로
+                4년간 밀도 있는 결과물을 만들어왔습니다. 동시에 다양한 <span className="text-white font-bold">AI 툴과 에이전트</span>를
+                깊이 파고들었고, 이제 그 둘을 합칠 단계에 와 있습니다.
+                블렌더 애드온을 AI로 직접 제작해 반복 작업을 자동화하고,
+                에이전트가 각 공정을 처리하는 동안 저는 전체 방향만 잡는
+                <span className="text-white font-bold"> 파이프라인을 설계</span>하고 있습니다.
               </p>
             </div>
           </motion.div>
