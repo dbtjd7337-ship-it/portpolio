@@ -192,6 +192,53 @@ function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, [goTo]);
 
+  // 터치 스와이프 지원 (모바일)
+  useEffect(() => {
+    let startY = 0;
+    let lockedEl: Element | null = null;
+
+    const onTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+      lockedEl = null;
+
+      // 터치 시작 위치에서 내부 스크롤 가능 요소 탐색
+      let el: Element | null = e.target as Element;
+      while (el && el !== document.documentElement) {
+        const { overflowY } = getComputedStyle(el);
+        if ((overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight) {
+          lockedEl = el;
+          break;
+        }
+        el = el.parentElement;
+      }
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      if (document.body.style.overflow === 'hidden') return;
+
+      const deltaY = startY - e.changedTouches[0].clientY;
+      if (Math.abs(deltaY) < 50) return; // 최소 스와이프 거리
+
+      if (lockedEl) {
+        const { scrollTop, scrollHeight, clientHeight } = lockedEl as HTMLElement;
+        const atBottom = scrollTop + clientHeight >= scrollHeight - 2;
+        const atTop    = scrollTop <= 0;
+        // 내부 스크롤이 경계에 도달하지 않았으면 섹션 이동 차단
+        if ((deltaY > 0 && !atBottom) || (deltaY < 0 && !atTop)) return;
+      }
+
+      if      (deltaY >  0) goTo(currentRef.current + 1);
+      else if (deltaY <  0) goTo(currentRef.current - 1);
+    };
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchend',   onTouchEnd,   { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchend',   onTouchEnd);
+    };
+  }, [goTo]);
+
   const sectionComponents = [
     <IntroSection />,
     <AboutMe />,
