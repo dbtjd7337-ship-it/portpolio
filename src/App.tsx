@@ -114,6 +114,38 @@ function IntroSection() {
         </p>
       </div>
 
+      {/* 하단 중앙 — 스크롤 유도 힌트 */}
+      <motion.div
+        className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        style={{ bottom: '5.5rem' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <p
+          className="uppercase hidden md:block"
+          style={{ fontSize: '0.65rem', letterSpacing: '0.15em', color: '#444444', fontFamily: "'DM Sans', sans-serif" }}
+        >
+          Scroll
+        </p>
+        <p
+          className="uppercase md:hidden"
+          style={{ fontSize: '0.65rem', letterSpacing: '0.15em', color: '#444444', fontFamily: "'DM Sans', sans-serif" }}
+        >
+          Swipe up
+        </p>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ color: '#444444' }}
+        >
+          <svg width="12" height="18" viewBox="0 0 12 18" fill="none">
+            <line x1="6" y1="0" x2="6" y2="14" stroke="currentColor" strokeWidth="1"/>
+            <polyline points="2,10 6,15 10,10" fill="none" stroke="currentColor" strokeWidth="1"/>
+          </svg>
+        </motion.div>
+      </motion.div>
+
     </section>
   );
 }
