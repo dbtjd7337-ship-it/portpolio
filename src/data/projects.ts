@@ -34,40 +34,31 @@ export interface Project {
 export const projects: Project[] = [
   // ─── Project A : 3D Modeling ──────────────────────────────────────────────
   {
-    id: 'asurada',
-    name: 'Asurada',
+    id: 'rx78',
+    name: 'RX-78',
     category: 'projectA',
     categoryLabel: '3D Modeling',
-    tags: ['Hard Surface', 'Blender', 'Rendering'],
+    tags: ['Hard Surface', 'Mech', 'Plasticity', 'Blender', 'Rendering'],
     description:
-      '《신세기 GPX 사이버 포뮬러》아스라다의 부스터 모드 변형을 실제로 작동 가능한 메커니즘으로 구현하는 것에 집중한 작업이다.\n\n애니메이션에서 연출로 처리되는 변신 장면을 파츠 분할과 이동 경로를 직접 설계해 물리적 설득력을 부여했다.\n\n하드서피스 모델링으로 엣지와 패널 라인을 정밀하게 구성하면서, 변형 전후의 실루엣이 자연스럽게 이어지도록 구조적 완성도에 집중했다.',
-    thumbnail: { src: '/images/projectA/asurada/asurada_main.mp4', type: 'video' },
+      '본격적인 메카닉 하드서피스 모델링의 시작점이 된 작업이다.\n좋아하는 건담을 직접 만들고 싶다는 순수한 동기에서 출발해\nPlasticity로 모델링하고, Blender에서 텍스처링·리깅·\n애니메이팅·렌더링·컴포지팅까지 전 과정을 완성했다.\n\n장난감 특유의 귀여움을 가진 SD 건담의 실루엣에\n사실적인 렌더링을 접목해, 장난감이 실제 로봇처럼\n작동하는 듯한 느낌을 만들어내는 것이 이 작업의 목표였다.\n\n귀여움과 실재감이 공존하는 그 접점을 찾는 과정이\n이 프로젝트의 핵심이었다.',
+    thumbnail: { src: '/images/projectA/rx78/rx78_main.mp4', type: 'video' },
     media: [
-      { src: '/images/projectA/asurada/asurada_1.webp', type: 'image' },
-      { src: '/images/projectA/asurada/asurada_2.webp', type: 'image' },
-      { src: '/images/projectA/asurada/asurada_3.webp', type: 'image' },
-      { src: '/images/projectA/asurada/asurada_4.webp', type: 'image' },
-      { src: '/images/projectA/asurada/asurada_5.mp4', type: 'video' },
-      { src: '/images/projectA/asurada/asurada_6.mp4', type: 'video' },
+      { src: '/images/projectA/rx78/rx78_1.webp', type: 'image' },   // 0
+      { src: '/images/projectA/rx78/rx78_2.webp', type: 'image' },   // 1
+      { src: '/images/projectA/rx78/rx78_3.webp', type: 'image' },   // 2
+      { src: '/images/projectA/rx78/rx78_4.webp', type: 'image' },   // 3
+      { src: '/images/projectA/rx78/rx78_5.webp', type: 'image' },   // 4
+      { src: '/images/projectA/rx78/rx78_6.webp', type: 'image' },   // 5
+      { src: '/images/projectA/rx78/rx78_7.webp', type: 'image' },   // 6
+      { src: '/images/projectA/rx78/rx78_8.webp', type: 'image' },   // 7
+      { src: '/images/projectA/rx78/rx78_9.webp', type: 'image' },   // 8
+      { src: '/images/projectA/rx78/rx78_10.webp', type: 'image' },  // 9
     ],
-    mediaLayout: [0, [1, 2], 3, 4, 5],
-  },
-  {
-    id: 'dog',
-    name: 'Hyundai Card Web3 Petset',
-    category: 'projectA',
-    categoryLabel: '3D Modeling',
-    tags: ['Character', 'Organic', 'Rigging', 'Blender'],
-    description:
-      '현대카드 앱 내 동물보호센터의 유기견을 NFT 캐릭터로 제작,\n기부를 유도하는 프로젝트를 위해 제작된 10종의 강아지 캐릭터다.\n\n종마다 다양한 의상을 적용할 수 있으며,\n앱 안에서 터치를 통해 캐릭터와 직접 상호작용할 수 있도록 기획되었다.\n\n평소 동물 다큐멘터리와 영상을 즐겨 보며 쌓아온 관심을 바탕으로,\n작업을 위해 강아지의 행동 양상을 더 깊이 분석하는 과정을 거쳤다.\n기분과 상황에 따른 행동 패턴을 세분화해 애니메이팅했으며,\n단순히 귀여운 움직임이 아닌 실제 강아지처럼\n행동할 것 같다는 설득력을 만드는 데 집중했다.',
-    thumbnail: { src: '/images/projectA/dog/dog_main.webp', type: 'image' },
-    media: [
-      { src: '/images/projectA/dog/dog_1.webp', type: 'image' },
-      { src: '/images/projectA/dog/dog_2.mp4', type: 'video' },
-      { src: '/images/projectA/dog/dog_3.mp4', type: 'video' },
-      { src: '/images/projectA/dog/dog_4.mp4', type: 'video' },
+    mediaLayout: [
+      { indices: [7, 8], cols: '0.88fr 0.86fr' },  // rx78_8, rx78_9 — 메인 바로 아래
+      { indices: [6, 9], cols: '1.24fr 1.30fr' },  // rx78_7, rx78_10 — 그 아래
+      0, 1, 2, 3, 4, 5,
     ],
-    mediaLayout: [0, { indices: [1, 2], cols: '2fr 1fr' }, 3],
   },
   {
     id: 'freedom-gundam',
@@ -92,6 +83,25 @@ export const projects: Project[] = [
       { src: '/images/projectA/freedom-gundam/freedom-gundam_12.webp', type: 'image' },
     ],
     mediaLayout: [0, [1, 2], 3, 4, [5, 6], 7, 8, 9, 10],
+  },
+  {
+    id: 'asurada',
+    name: 'Asurada',
+    category: 'projectA',
+    categoryLabel: '3D Modeling',
+    tags: ['Hard Surface', 'Blender', 'Rendering'],
+    description:
+      '《신세기 GPX 사이버 포뮬러》아스라다의 부스터 모드 변형을 실제로 작동 가능한 메커니즘으로 구현하는 것에 집중한 작업이다.\n\n애니메이션에서 연출로 처리되는 변신 장면을 파츠 분할과 이동 경로를 직접 설계해 물리적 설득력을 부여했다.\n\n하드서피스 모델링으로 엣지와 패널 라인을 정밀하게 구성하면서, 변형 전후의 실루엣이 자연스럽게 이어지도록 구조적 완성도에 집중했다.',
+    thumbnail: { src: '/images/projectA/asurada/asurada_main.mp4', type: 'video' },
+    media: [
+      { src: '/images/projectA/asurada/asurada_1.webp', type: 'image' },
+      { src: '/images/projectA/asurada/asurada_2.webp', type: 'image' },
+      { src: '/images/projectA/asurada/asurada_3.webp', type: 'image' },
+      { src: '/images/projectA/asurada/asurada_4.webp', type: 'image' },
+      { src: '/images/projectA/asurada/asurada_5.mp4', type: 'video' },
+      { src: '/images/projectA/asurada/asurada_6.mp4', type: 'video' },
+    ],
+    mediaLayout: [0, [1, 2], 3, 4, 5],
   },
   {
     id: 'mobi',
@@ -136,6 +146,23 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'dog',
+    name: 'Hyundai Card Web3 Petset',
+    category: 'projectA',
+    categoryLabel: '3D Modeling',
+    tags: ['Character', 'Organic', 'Rigging', 'Blender'],
+    description:
+      '현대카드 앱 내 동물보호센터의 유기견을 NFT 캐릭터로 제작,\n기부를 유도하는 프로젝트를 위해 제작된 10종의 강아지 캐릭터다.\n\n종마다 다양한 의상을 적용할 수 있으며,\n앱 안에서 터치를 통해 캐릭터와 직접 상호작용할 수 있도록 기획되었다.\n\n평소 동물 다큐멘터리와 영상을 즐겨 보며 쌓아온 관심을 바탕으로,\n작업을 위해 강아지의 행동 양상을 더 깊이 분석하는 과정을 거쳤다.\n기분과 상황에 따른 행동 패턴을 세분화해 애니메이팅했으며,\n단순히 귀여운 움직임이 아닌 실제 강아지처럼\n행동할 것 같다는 설득력을 만드는 데 집중했다.',
+    thumbnail: { src: '/images/projectA/dog/dog_main.webp', type: 'image' },
+    media: [
+      { src: '/images/projectA/dog/dog_1.webp', type: 'image' },
+      { src: '/images/projectA/dog/dog_2.mp4', type: 'video' },
+      { src: '/images/projectA/dog/dog_3.mp4', type: 'video' },
+      { src: '/images/projectA/dog/dog_4.mp4', type: 'video' },
+    ],
+    mediaLayout: [0, { indices: [1, 2], cols: '2fr 1fr' }, 3],
+  },
+  {
     id: 'rolex',
     name: 'VIVER Brand Visual',
     category: 'projectA',
@@ -162,33 +189,6 @@ export const projects: Project[] = [
         label: 'VIVER BX · UI/UX · Content',
         thumbnail: '/images/projectA/rolex/rolex_thum.webp',
       },
-    ],
-  },
-  {
-    id: 'rx78',
-    name: 'RX-78',
-    category: 'projectA',
-    categoryLabel: '3D Modeling',
-    tags: ['Hard Surface', 'Mech', 'Plasticity', 'Blender', 'Rendering'],
-    description:
-      '본격적인 메카닉 하드서피스 모델링의 시작점이 된 작업이다.\n좋아하는 건담을 직접 만들고 싶다는 순수한 동기에서 출발해\nPlasticity로 모델링하고, Blender에서 텍스처링·리깅·\n애니메이팅·렌더링·컴포지팅까지 전 과정을 완성했다.\n\n장난감 특유의 귀여움을 가진 SD 건담의 실루엣에\n사실적인 렌더링을 접목해, 장난감이 실제 로봇처럼\n작동하는 듯한 느낌을 만들어내는 것이 이 작업의 목표였다.\n\n귀여움과 실재감이 공존하는 그 접점을 찾는 과정이\n이 프로젝트의 핵심이었다.',
-    thumbnail: { src: '/images/projectA/rx78/rx78_main.mp4', type: 'video' },
-    media: [
-      { src: '/images/projectA/rx78/rx78_1.webp', type: 'image' },   // 0
-      { src: '/images/projectA/rx78/rx78_2.webp', type: 'image' },   // 1
-      { src: '/images/projectA/rx78/rx78_3.webp', type: 'image' },   // 2
-      { src: '/images/projectA/rx78/rx78_4.webp', type: 'image' },   // 3
-      { src: '/images/projectA/rx78/rx78_5.webp', type: 'image' },   // 4
-      { src: '/images/projectA/rx78/rx78_6.webp', type: 'image' },   // 5
-      { src: '/images/projectA/rx78/rx78_7.webp', type: 'image' },   // 6
-      { src: '/images/projectA/rx78/rx78_8.webp', type: 'image' },   // 7
-      { src: '/images/projectA/rx78/rx78_9.webp', type: 'image' },   // 8
-      { src: '/images/projectA/rx78/rx78_10.webp', type: 'image' },  // 9
-    ],
-    mediaLayout: [
-      { indices: [7, 8], cols: '0.88fr 0.86fr' },  // rx78_8, rx78_9 — 메인 바로 아래
-      { indices: [6, 9], cols: '1.24fr 1.30fr' },  // rx78_7, rx78_10 — 그 아래
-      0, 1, 2, 3, 4, 5,
     ],
   },
   {

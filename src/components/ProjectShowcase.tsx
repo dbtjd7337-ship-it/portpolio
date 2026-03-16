@@ -43,7 +43,7 @@ const ProjectCard = ({ project, delay, onClick }: { project: Project; delay: num
     transition={{ delay, duration: 0.4, ease: [0.25, 0, 0, 1] }}
     viewport={{ once: true }}
     onClick={onClick}
-    className="group relative aspect-video overflow-hidden cursor-pointer border border-[#222]"
+    className="group relative overflow-hidden cursor-pointer border border-[#222]" style={{ aspectRatio: '4/3' }}
   >
     {/* 썸네일 미디어 */}
     <ThumbnailMedia
@@ -65,17 +65,6 @@ const ProjectCard = ({ project, delay, onClick }: { project: Project; delay: num
       <h3 className="text-base font-bold text-white tracking-tight">
         {project.name}
       </h3>
-      <div className="flex gap-1.5 flex-wrap mt-2">
-        {project.tags.map(tag => (
-          <span
-            key={tag}
-            className="text-[9px] px-2 py-0.5 text-white uppercase hover:bg-white hover:text-black transition-colors duration-150"
-            style={{ border: '1px solid #555', letterSpacing: '0.1em', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </div>
 
     {/* 우상단 화살표 */}
