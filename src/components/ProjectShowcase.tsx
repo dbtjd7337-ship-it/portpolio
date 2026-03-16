@@ -100,7 +100,7 @@ export const ProjectsSection = () => {
 
   return (
     <section
-      className="w-full h-full overflow-y-auto flex flex-col justify-start py-16 px-12 md:px-24 bg-black works-scroll"
+      className="w-full h-full overflow-y-auto flex flex-col justify-start pt-16 pb-32 px-12 md:px-24 bg-black works-scroll"
       id="section-works"
     >
       <div className="max-w-6xl mx-auto w-full">
