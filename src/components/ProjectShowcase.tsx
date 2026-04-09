@@ -36,14 +36,14 @@ const ThumbnailMedia = ({ item, className }: { item: ProjectMedia; className?: s
   return <img src={item.src} alt="" loading="lazy" className={className} />;
 };
 
-const ProjectCard = ({ project, delay, onClick }: { project: Project; delay: number; onClick: () => void }) => (
+const ProjectCard = ({ project, delay, aspectRatio = '4/3', onClick }: { project: Project; delay: number; aspectRatio?: string; onClick: () => void }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ delay, duration: 0.4, ease: [0.25, 0, 0, 1] }}
     viewport={{ once: true }}
     onClick={onClick}
-    className="group relative overflow-hidden cursor-pointer border border-[#222]" style={{ aspectRatio: '4/3' }}
+    className="group relative overflow-hidden cursor-pointer border border-[#222]" style={{ aspectRatio }}
   >
     {/* 썸네일 미디어 */}
     <ThumbnailMedia
@@ -88,7 +88,7 @@ export const ProjectsSection = () => {
   const [selected, setSelected] = useState<Project | null>(null);
 
   // 카테고리별 그루핑
-  const grouped = (['projectA', 'projectB', 'projectC'] as const)
+  const grouped = (['projectC', 'projectA', 'projectB'] as const)
     .map(cat => ({
       category: cat,
       label: CATEGORY_LABELS[cat],
@@ -131,7 +131,11 @@ export const ProjectsSection = () => {
                 </span>
                 <div className="h-[1px] flex-grow bg-[#222]" />
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className={
+                group.category === 'projectA'
+                  ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-5'
+                  : 'grid grid-cols-2 gap-5'
+              }>
                 {group.items.map(project => {
                   const delay = (cardIndex++ % 3) * 0.1;
                   return (
@@ -139,6 +143,7 @@ export const ProjectsSection = () => {
                       key={project.id}
                       project={project}
                       delay={delay}
+                      aspectRatio={group.category === 'projectA' ? '4/3' : '16/9'}
                       onClick={() => setSelected(project)}
                     />
                   );

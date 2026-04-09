@@ -344,24 +344,6 @@ export const projects: Project[] = [
   },
   // ─── Project C : Visual ───────────────────────────────────────────────────
   {
-    id: 'hideout',
-    name: 'Hideout',
-    category: 'projectC',
-    categoryLabel: 'Visual',
-    tags: ['Environment', 'Scene', 'Blender', 'Substance Painter', 'Rendering'],
-    description:
-      '올리의 방 작업 이후, 빠른 씬 세팅 능력을 점검하기 위해\n진행한 개인 프로젝트다.\n\n버려진 지하 아지트를 컨셉으로,\n친한 친구들끼리 게임, 개발, 식사를 함께하던\n자기들만의 공간이 시간이 흘러 폐허가 된 모습을 상상해 제작했다.\n\n녹이 슬고 먼지가 쌓인 오브젝트들,\n어둠 속에서 살아있는 라이팅으로\n공간이 가진 시간의 흔적을 표현하는 데 집중했다.\n다양한 에셋을 활용해 빠르게 세팅하고\n라이팅까지 완성하는 것이 이 작업의 핵심 목표였다.',
-    thumbnail: { src: '/images/projectC/hideout/hideout_main.webp', type: 'image' },
-    mediaLayout: [[0, 1], 2, 3, 4],
-    media: [
-      { src: '/images/projectC/hideout/hideout_1.webp', type: 'image' },
-      { src: '/images/projectC/hideout/hideout_2.webp', type: 'image' },
-      { src: '/images/projectC/hideout/hideout_3.webp', type: 'image' },
-      { src: '/images/projectC/hideout/hideout_4.webp', type: 'image' },
-      { src: '/images/projectC/hideout/hideout_5.webp', type: 'image' },
-    ],
-  },
-  {
     id: 'oille-room',
     name: 'Oille Room',
     category: 'projectC',
@@ -401,6 +383,24 @@ export const projects: Project[] = [
         label: 'SUPRA X CYPHRLY',
         thumbnail: '/images/projectC/oille-room/oille-room_thum.webp',
       },
+    ],
+  },
+  {
+    id: 'hideout',
+    name: 'Hideout',
+    category: 'projectC',
+    categoryLabel: 'Visual',
+    tags: ['Environment', 'Scene', 'Blender', 'Substance Painter', 'Rendering'],
+    description:
+      '올리의 방 작업 이후, 빠른 씬 세팅 능력을 점검하기 위해\n진행한 개인 프로젝트다.\n\n버려진 지하 아지트를 컨셉으로,\n친한 친구들끼리 게임, 개발, 식사를 함께하던\n자기들만의 공간이 시간이 흘러 폐허가 된 모습을 상상해 제작했다.\n\n녹이 슬고 먼지가 쌓인 오브젝트들,\n어둠 속에서 살아있는 라이팅으로\n공간이 가진 시간의 흔적을 표현하는 데 집중했다.\n다양한 에셋을 활용해 빠르게 세팅하고\n라이팅까지 완성하는 것이 이 작업의 핵심 목표였다.',
+    thumbnail: { src: '/images/projectC/hideout/hideout_main.webp', type: 'image' },
+    mediaLayout: [[0, 1], 2, 3, 4],
+    media: [
+      { src: '/images/projectC/hideout/hideout_1.webp', type: 'image' },
+      { src: '/images/projectC/hideout/hideout_2.webp', type: 'image' },
+      { src: '/images/projectC/hideout/hideout_3.webp', type: 'image' },
+      { src: '/images/projectC/hideout/hideout_4.webp', type: 'image' },
+      { src: '/images/projectC/hideout/hideout_5.webp', type: 'image' },
     ],
   },
 ];
